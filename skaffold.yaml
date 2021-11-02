@@ -1,0 +1,20 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+build:
+  artifacts:
+    - image: anson1138/keystonejs
+      context: keystonejs
+deploy:
+  helm:
+    releases:
+      - name: keystonejs
+        chartPath: ./deploy/keystonejs
+        namespace: default
+        artifactOverrides:
+          image: anson1138/keystonejs
+        imageStrategy:
+          helm: {}
+        valuesFiles:
+        - ./deploy/keystonejs/values.yaml
+
+  
