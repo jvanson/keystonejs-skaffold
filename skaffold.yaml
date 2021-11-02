@@ -7,6 +7,12 @@ build:
 deploy:
   helm:
     releases:
+      - name: mongodb
+        repo: https://charts.bitnami.com/bitnami
+        remoteChart: mongodb
+        namespace: default
+        valuesFiles:
+        - ./deploy/mongodb/values.yaml
       - name: keystonejs
         chartPath: ./deploy/keystonejs
         namespace: default
@@ -16,5 +22,6 @@ deploy:
           helm: {}
         valuesFiles:
         - ./deploy/keystonejs/values.yaml
+
 
   
