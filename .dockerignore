@@ -1,0 +1,12 @@
+.cache
+Dockerfile
+skaffold.yaml
+.dockerignore
+*.swp
+tags
+deploy/
+.git/
+docs/
+dist/
+backup
+postgresversion

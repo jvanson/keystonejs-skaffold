@@ -3,16 +3,37 @@ kind: Config
 build:
   artifacts:
     - image: anson1138/keystonejs
-      context: keystonejs
+      docker:
+        dockerfile: ./Dockerfile
+      #context: keystonejs
+    - image: anson1138/postgresql
+      context: postgres
+      #docker:
+      #  dockerfile: ./Dockerfile
 deploy:
   helm:
     releases:
-      - name: mongodb
+      #- name: mongodb
+      #  repo: https://charts.bitnami.com/bitnami
+      #  remoteChart: mongodb
+      #  namespace: default
+      #  valuesFiles:
+      #  - ./deploy/mongodb/values.yaml
+      - name: postgresql
         repo: https://charts.bitnami.com/bitnami
-        remoteChart: mongodb
+        remoteChart: postgresql
         namespace: default
         valuesFiles:
-        - ./deploy/mongodb/values.yaml
+        - ./deploy/postgresql/values.yaml
+      - name: postgresql-createdb
+        chartPath: ./deploy/postgresql-createdb
+        namespace: default
+        artifactOverrides:
+          image: anson1138/postgresql
+        imageStrategy:
+          helm: {}
+        valuesFiles:
+        - ./deploy/postgresql-createdb/values.yaml
       - name: keystonejs
         chartPath: ./deploy/keystonejs
         namespace: default

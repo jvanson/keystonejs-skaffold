@@ -1,0 +1,3 @@
+postgresqlPassword: hKgBt65JZZ
+#readinessProbe:
+#  initialDelaySeconds: 60

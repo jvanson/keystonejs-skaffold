@@ -1,0 +1,51 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgresql-create-database
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "1"
+    #"helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: postgresql-createdb
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: ["./createdb.sh", "./createtable"]
+          # command: ["createdb", "--host", "postgresql.default.svc.cluster.local", "-U", "postgres", "todo", "-e"]
+          env:
+          - name: "PGPASSWORD"
+            value: {{ .Values.postgresqlPassword }}
+          - name: "DB_HOST"
+            value: {{ .Values.postgresqlHost }}
+          - name: "DB_NAME"
+            value: {{ .Values.postgresqlDBName }}
+---            
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgresql-create-table
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "1"
+    #"helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: postgresql-createdb
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: ["./createtable.sh"]
+          # command: ["createdb", "--host", "postgresql.default.svc.cluster.local", "-U", "postgres", "todo", "-e"]
+          env:
+          - name: "PGPASSWORD"
+            value: {{ .Values.postgresqlPassword }}
+          - name: "DB_HOST"
+            value: {{ .Values.postgresqlHost }}
+          - name: "DB_NAME"
+            value: {{ .Values.postgresqlDBName }}
+
+

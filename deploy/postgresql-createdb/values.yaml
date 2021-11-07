@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: "anson1138/keystonejs"
+  repository: "anson1138/postgresql"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -15,6 +15,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 postgresqlPassword: hKgBt65JZZ
+postgresqlHost: "postgresql.default.svc.cluster.local"
+postgresqlDBName: "todo"
 
 serviceAccount:
   # Specifies whether a service account should be created
