@@ -17,7 +17,8 @@
     "create-tables": "cross-env keystone create-tables",
     "init": "skaffold dev --port-forward",
     "run": "skaffold dev --port-forward",
-    "test": "mocha"
+    "test": "mocha",
+    "test-deploy": "kubectl exec svc/keystonejs -- npm test"
   },
   "dependencies": {
     "@keystonejs/adapter-knex": "^13.3.2",
