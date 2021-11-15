@@ -1,0 +1,9 @@
+configmap_common:
+  DB_HOST: "postgresql.default.svc.cluster.local"
+  DB_NAME: "todo"
+
+secrets_common:
+  # base64 decoded for demo purposes
+  #DB_URL: "postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo"
+  DB_URL: cG9zdGdyZXM6Ly9wb3N0Z3JlczpoS2dCdDY1SlpaQHBvc3RncmVzcWwuZGVmYXVsdC5zdmMuY2x1c3Rlci5sb2NhbC90b2Rv
+  PGPASSWORD: aEtnQnQ2NUpaWg==

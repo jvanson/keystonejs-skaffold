@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-common
+data:
+{{- if $.Values.configmap_common }}
+{{ toYaml $.Values.configmap_common | indent 2 }}
+{{- end }}
