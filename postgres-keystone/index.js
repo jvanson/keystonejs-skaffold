@@ -8,9 +8,8 @@ const { KnexAdapter: Adapter } = require("@keystonejs/adapter-knex");
 const PROJECT_NAME = "todo";
 const adapterConfig = {
   knexOptions: {
-    connection:
-      process.env.DB_URL,
-      //"postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo",
+    connection: process.env.DB_URL,
+    //"postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo",
   },
 };
 
