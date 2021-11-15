@@ -5,7 +5,7 @@ metadata:
   annotations:
     "helm.sh/hook": post-install
     "helm.sh/hook-weight": "1"
-    #"helm.sh/hook-delete-policy": hook-succeeded
+    "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   template:
     spec:
@@ -14,12 +14,17 @@ spec:
         - name: postgresql-createdb
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           command: ["./createtable.sh"]
-          env:
-          - name: "PGPASSWORD"
-            value: {{ .Values.postgresqlPassword }}
-          - name: "DB_HOST"
-            value: {{ .Values.postgresqlHost }}
-          - name: "DB_NAME"
-            value: {{ .Values.postgresqlDBName }}
-
-
+          #env:
+          #- name: "PGPASSWORD"
+          #  value: {{ .Values.postgresqlPassword }}
+          #- name: "DB_HOST"
+          #  value: {{ .Values.postgresqlHost }}
+          #- name: "DB_NAME"
+          #  value: {{ .Values.postgresqlDBName }}
+          #- name: "DB_URL"
+          #  value: {{ .Values.dbURL }}
+          envFrom:
+          - configMapRef:
+              name: configmap-common
+          - secretRef:
+              name: secrets-common

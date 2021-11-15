@@ -7,12 +7,28 @@ build:
         dockerfile: ./Dockerfile
       #context: keystonejs
     - image: anson1138/postgresql
-      context: postgres
+      context: postgres-keystone
       #docker:
       #  dockerfile: ./Dockerfile
+test:
+  - image: anson1138/keystonejs
+    custom:
+      - command: npm test
+      #- command: npm run test
+        timeoutSeconds: 60
+        #dependencies:
+        #  paths:
+        #  -  "*_test.go"
+        #  -  "test.sh"
+  
 deploy:
   helm:
     releases:
+      - name: config-common
+        chartPath: ./deploy/config-common
+        namespace: default
+        valuesFiles:
+        - ./deploy/config-common/values.yaml
       #- name: mongodb
       #  repo: https://charts.bitnami.com/bitnami
       #  remoteChart: mongodb
@@ -25,6 +41,13 @@ deploy:
         namespace: default
         valuesFiles:
         - ./deploy/postgresql/values.yaml
+      #- name: kube-prometheus-stack
+      #  repo: https://prometheus-community.github.io/helm-charts
+      #  remoteChart: kube-prometheus-stack
+      #  namespace: default
+      #  version: 16.0.1
+      #  #valuesFiles:
+      #  #- ./deploy/postgresql/values.yaml
       - name: postgresql-createdb
         chartPath: ./deploy/postgresql-createdb
         namespace: default
@@ -43,6 +66,13 @@ deploy:
           helm: {}
         valuesFiles:
         - ./deploy/keystonejs/values.yaml
+    #hooks:
+    #  after:
+    #    - container:
+    #      command: npm test
+    #      containerName: keystonejs*
+    #      podName: keystonejs*
+      
 
 
   

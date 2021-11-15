@@ -15,8 +15,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 postgresqlPassword: hKgBt65JZZ
-postgresqlHost: "postgresql.default.svc.cluster.local"
-postgresqlDBName: "todo"
+#postgresqlHost: "postgresql.default.svc.cluster.local"
+#postgresqlDBName: "todo"
+dbURL: "postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo"
+
 
 serviceAccount:
   # Specifies whether a service account should be created

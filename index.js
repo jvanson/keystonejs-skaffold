@@ -9,7 +9,8 @@ const PROJECT_NAME = "todo";
 const adapterConfig = {
   knexOptions: {
     connection:
-      "postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo",
+      process.env.DB_URL,
+      //"postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo",
   },
 };
 
