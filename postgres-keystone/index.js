@@ -10,7 +10,6 @@ const adapterConfig = {
   knexOptions: {
     connection:
       process.env.DB_URL,
-      //"postgres://postgres:hKgBt65JZZ@postgresql.default.svc.cluster.local/todo",
   },
 };
 

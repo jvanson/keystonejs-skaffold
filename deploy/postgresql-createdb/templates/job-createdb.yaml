@@ -14,15 +14,6 @@ spec:
         - name: postgresql-createdb
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           command: ["./createdb.sh"]
-          #env:
-          #- name: "PGPASSWORD"
-          #  value: {{ .Values.postgresqlPassword }}
-          #- name: "DB_HOST"
-          #  value: {{ .Values.postgresqlHost }}
-          #- name: "DB_NAME"
-          #  value: {{ .Values.postgresqlDBName }}
-          #- name: "DB_URL"
-          #  value: {{ .Values.dbURL }}
           envFrom:
           - configMapRef:
               name: configmap-common
