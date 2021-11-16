@@ -6,9 +6,6 @@ COPY index.js /var/tmp
 RUN npm install
 
 RUN apk add postgresql-client
-
-
-
 COPY create* /var/tmp/
 RUN chmod 755 /var/tmp/create*
 
