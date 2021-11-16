@@ -8,8 +8,7 @@ const { KnexAdapter: Adapter } = require("@keystonejs/adapter-knex");
 const PROJECT_NAME = "todo";
 const adapterConfig = {
   knexOptions: {
-    connection:
-      process.env.DB_URL,
+    connection: process.env.DB_URL,
   },
 };
 
