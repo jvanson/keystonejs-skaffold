@@ -16,7 +16,7 @@
     "start": "cross-env NODE_ENV=production keystone start",
     "create-tables": "cross-env keystone create-tables",
     "init": "skaffold dev --port-forward",
-    "run": "skaffold dev --port-forward",
+    "delete": "skaffold delete",
     "test": "mocha",
     "test-deploy": "kubectl exec svc/keystonejs -- npm test"
   },
