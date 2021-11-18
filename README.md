@@ -3,11 +3,11 @@
 ## Overview
 
 Setup a Node.js project (Keystonejs) that leverages Kubernetes and Skaffold to build and deploy your local changes to Kubernetes easily.
-For more details: https://docs.google.com/document/d/1Or9ZwBjWRhbXaz0VfJ_DwGEAcnOhveez7T4lCpW33JE/edit?usp=sharing
+For more details: <https://docs.google.com/document/d/1Or9ZwBjWRhbXaz0VfJ_DwGEAcnOhveez7T4lCpW33JE/edit?usp=sharing>
 
 ## Quick Start
 
-### Prerequisites:
+### Prerequisites
 
 - Kubernetes
 - Skaffold:
@@ -18,7 +18,7 @@ For more details: https://docs.google.com/document/d/1Or9ZwBjWRhbXaz0VfJ_DwGEAcn
 
   - Linux
 
-    - `curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \ sudo install skaffold /usr/local/bin/ `
+    - `curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \ sudo install skaffold /usr/local/bin/`
 
   - Windows
     - `https://storage.googleapis.com/skaffold/releases/latest/skaffold-windows-amd64.exe`
