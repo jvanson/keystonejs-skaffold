@@ -1,8 +1,8 @@
 const { Keystone } = require("@keystonejs/keystone");
 const { Text } = require("@keystonejs/fields");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
-const {AdminUIApp }=require("@keystonejs/app-admin-ui");
-const {StaticApp } = require("@keystonejs/app-static");
+const { AdminUIApp } = require("@keystonejs/app-admin-ui");
+const { StaticApp } = require("@keystonejs/app-static");
 
 const { KnexAdapter: Adapter } = require("@keystonejs/adapter-knex");
 const PROJECT_NAME = "todo";
