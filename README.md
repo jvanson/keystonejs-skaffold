@@ -2,7 +2,7 @@
 
 ## Overview
 
-Setup a nodejs project (Keystonejs) that leverages Kubernetes and Skaffold to build and deploy your local changes to Kubernetes easily.
+Setup a Node.js project (Keystonejs) that leverages Kubernetes and Skaffold to build and deploy your local changes to Kubernetes easily.
 For more details: https://docs.google.com/document/d/1Or9ZwBjWRhbXaz0VfJ_DwGEAcnOhveez7T4lCpW33JE/edit?usp=sharing
 
 ## Quick Start
